@@ -23,14 +23,14 @@
 //     return App\Post::find($id);
 // });
 
-Route::resource('posts', 'PostController');
+
 
 Route::get('/', 'HomeController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
-	
+	Route::resource('posts', 'PostController');
 });
 
 Auth::routes();
